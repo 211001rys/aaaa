@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>薬投与指示機能</title>
+    <link rel="stylesheet" href="style.css"> <!-- CSSファイルをリンク -->
+</head>
+<body>
+<div class="container">
+    <h1>薬投与指示機能</h1>
+    <form id="medicineForm">
+        <label for="medicine">薬剤名:</label>
+        <select id="medicine" name="medicine">
+            <option value="薬剤A">薬剤A</option>
+            <option value="薬剤B">薬剤B</option>
+            <option value="薬剤C">薬剤C</option>
+        </select>
+        <label for="quantity">数量:</label>
+        <input type="number" id="quantity" name="quantity" min="1" value="1">
+        <button type="submit">確認</button>
+    </form>
+
+    <div id="confirmation" class="confirmation" style="display: none;">
+        <h2>処置確認</h2>
+        <p>薬剤名: <span id="confirmedMedicine"></span></p>
+        <p>数量: <span id="confirmedQuantity"></span></p>
+        <button id="backToSelection">薬剤選択画面へ戻る</button>
+        <button id="deleteMedicine">削除</button>
+        <button id="confirmTreatment">処置確定</button>
+    </div>
+</div>
+
+<script>
+    var form = document.getElementById("medicineForm");
+    var confirmation = document.getElementById("confirmation");
+    var confirmedMedicine = document.getElementById("confirmedMedicine");
+    var confirmedQuantity = document.getElementById("confirmedQuantity");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault(); // デフォルトのフォーム送信を防ぐ
+
+        // 入力された値を取得
+        var medicine = document.getElementById("medicine").value;
+        var quantity = document.getElementById("quantity").value;
+
+        // 確認画面に表示
+        confirmedMedicine.textContent = medicine;
+        confirmedQuantity.textContent = quantity;
+
+    // 確認画面を表示

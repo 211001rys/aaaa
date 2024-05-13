@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>患者登録</title>
+</head>
+<body>
+<h1>患者登録</h1>
+<form id="registrationForm">
+    <label for="patientID">患者ID:</label>
+    <input type="text" id="patientID" name="patientID" required><br>
+
+    <label for="lastName">患者姓:</label>
+    <input type="text" id="lastName" name="lastName" required><br>
+
+    <label for="firstName">患者名:</label>
+    <input type="text" id="firstName" name="firstName" required><br>
+
+    <label for="insuranceNumber">保険証記号番号:</label>
+    <input type="text" id="insuranceNumber" name="insuranceNumber" required><br>
+
+    <label for="expiryDate">有効期限:</label>
+    <input type="date" id="expiryDate" name="expiryDate" required><br>
+
+    <button type="submit">登録確認</button>
+</form>
+
+<div id="confirmation" style="display: none;">
+    <h2>登録内容確認</h2>
+    <p>患者ID: <span id="confirmPatientID"></span></p>
+    <p>患者姓: <span id="confirmLastName"></span></p>
+    <p>患者名: <span id="confirmFirstName"></span></p>
+    <p>保険証記号番号: <span id="confirmInsuranceNumber"></span></p>
+    <p>有効期限: <span id="confirmExpiryDate"></span></p>
+    <button id="confirmRegistration">登録</button>
+</div>
+
+<div id="error" style="display: none;">
+    <h2>エラー</h2>
+    <p id="errorMessage"></p>
+</div>
+
+<script>
+    document.getElementById("registrationForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // デフォルトのフォーム送信を防ぐ
+
+        var patientID = document.getElementById("patientID").value;
+        var lastName = document.getElementById("lastName").value;
+        var firstName = document.getElementById("firstName").value;
+        var insuranceNumber = document.getElementById("insuranceNumber").value;
+        var expiryDate = document.getElementById("expiryDate").value;
+
+        var confirmationDiv = document.getElementById("confirmation");
+        var confirmPatientID = document.getElementById("confirmPatientID");
+        var confirmLastName = document.getElementById("confirmLastName");
+        var confirmFirstName = document.getElementById("confirmFirstName");
+        var confirmInsuranceNumber = document.getElementById("confirmInsuranceNumber");
+        var confirmExpiryDate = document.getElementById("confirmExpiryDate");
+
+        confirmPatientID.textContent = patientID;
+        confirmLastName.textContent = lastName;
+        confirmFirstName.textContent = firstName;
+        confirmInsuranceNumber.textContent = insuranceNumber;
+        confirmExpiryDate.textContent = expiryDate;
+
+        confirmationDiv.style.display = "block";
+    });
+
+    document.getElementById("confirmRegistration").addEventListener("click", function() {
+        // ここでサーバーに登録を送信し、エラーチェックを行う
+        // 以下は仮のエラーチェック
+        var hasError = Math.random() < 0.

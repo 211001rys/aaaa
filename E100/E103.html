@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>従業員パスワード変更機能</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>従業員パスワード変更機能</h1>
+    <form action="change_password.php" method="POST">
+        <label for="password">新しいパスワード:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <label for="confirm_password">新しいパスワード（再入力）:</label>
+        <input type="password" id="confirm_password" name="confirm_password" required><br>
+
+        <button type="submit">変更</button>
+    </form>
+</div>
+</body>
+</html>

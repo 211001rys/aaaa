@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>処置履歴確認機能</title>
+    <link rel="stylesheet" href="style.css"> <!-- CSSファイルをリンク -->
+</head>
+<body>
+<div class="container">
+    <h1>処置履歴確認機能</h1>
+
+    <div class="form-group">
+        <label for="patientID">患者ID:</label>
+        <input type="text" id="patientID" name="patientID">
+    </div>
+
+    <div id="history" class="history">
+        <!-- 処置履歴表示エリア -->
+    </div>
+
+    <div class="btn-group">
+        <button id="showHistory">患者IDを指定する</button>
+        <button id="backToMenu">メニューに戻る</button>
+    </div>
+</div>
+
+<script>
+    var showHistoryButton = document.getElementById("showHistory");
+    var backToMenuButton = document.getElementById("backToMenu");
+
+    showHistoryButton.addEventListener("click", function() {
+        var patientID = document.getElementById("patientID").value;
+        // 患者IDに基づいて処置履歴を取得して表示する処理
+        console.log("患者ID: " + patientID);
+        // 履歴を取得して表示する処理をここに追加する
+    });
+
+    backToMenuButton.addEventListener("click", function() {
+        // メニュー画面に戻る処理
+        console.log("メニューに戻る");
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>処置確定機能</title>
+    <link rel="stylesheet" href="style.css"> <!-- CSSファイルをリンク -->
+</head>
+<body>
+<div class="container">
+    <h1>処置確定機能</h1>
+
+    <div id="confirmation" class="confirmation">
+        <h2>処置確認</h2>
+        <p>薬剤名: 薬剤A</p>
+        <p>数量: 1</p>
+        <button id="backToSelection">薬剤選択画面へ戻る</button>
+        <button id="deleteMedicine">削除</button>
+        <button id="confirmTreatment">処置確定</button>
+    </div>
+</div>
+
+<script>
+    var backToSelectionButton = document.getElementById("backToSelection");
+    var deleteMedicineButton = document.getElementById("deleteMedicine");
+    var confirmTreatmentButton = document.getElementById("confirmTreatment");
+
+    backToSelectionButton.addEventListener("click", function() {
+        // 薬剤選択画面へ戻る処理
+        console.log("薬剤選択画面へ戻る");
+    });
+
+    deleteMedicineButton.addEventListener("click", function() {
+        // 薬剤削除処理
+        console.log("薬剤削除");
+    });
+
+    confirmTreatmentButton.addEventListener("click", function() {
+        // 処置確定処理
+        console.log("処置確定");
+        // ここでデータベースへの登録などの処理を行う
+    });
+</script>
+</body>
+</html>

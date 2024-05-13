@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>患者名検索</title>
+    <!-- CSSファイルをリンク -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>患者名検索</h1>
+<form id="searchForm">
+    <label for="patientName">患者名:</label>
+    <input type="text" id="patientName" name="patientName" required>
+    <button type="submit">検索</button>
+</form>
+
+<div id="searchResults"></div>
+
+<div id="noResults" style="display: none;">該当する患者が見つかりませんでした。</div>
+
+<script>
+    document.getElementById("searchForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // デフォルトのフォーム送信を防ぐ
+
+        var patientName = document.getElementById("patientName").value;
+
+        // ダミーの患者データ（本来はサーバーから取得）
+        var patients = [
+            { id: 1, name: "山田太郎" },
+            { id: 2, name: "田中花子" },
+            { id: 3, name: "佐藤健太" }
+        ];
+
+        var searchResultsDiv = document.getElementById("searchResults");
+        searchResultsDiv.innerHTML = "";
+
+        var foundPatients = patients.filter(function(patient) {
+            return patient.name.includes(patientName);
+        });
+
+        if (foundPatients.length > 0) {
+            foundPatients.forEach(
